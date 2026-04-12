@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bike Rental for Tourists — Beatrice Sung</title>
+  <meta name="description" content="Case Study: MOOVO — Bike rental service for tourists. UX strategy, Mobile APP, B2B." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="../index.html" class="nav__logo">
+          <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698b0ffdcd13e1ce814c77a6_yy-face-icon-2-05.svg" alt="Beatrice Sung" />
+          Beatrice.design
+        </a>
+        <nav class="nav__links">
+          <a href="case-study-moovo.html" class="nav__link active">🚲 works</a>
+          <a href="about-me.html" class="nav__link">👀 about</a>
+          <a href="https://drive.google.com/file/d/1y4C-jhE_W__KV4J6Wyw2Uy5J8vODWqsi/view" target="_blank" class="nav__link nav__link--resume">🔗 resume</a>
+        </nav>
+        <button class="nav__hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__mobile">
+      <a href="case-study-moovo.html" class="nav__link active">🚲 works</a>
+      <a href="about-me.html" class="nav__link">👀 about</a>
+      <a href="https://drive.google.com/file/d/1y4C-jhE_W__KV4J6Wyw2Uy5J8vODWqsi/view" target="_blank" class="nav__link nav__link--resume">🔗 resume</a>
+    </div>
+  </nav>
+
+  <!-- ========== CASE STUDY HERO ========== -->
+  <section class="cs-hero">
+    <div class="container">
+      <div class="cs-hero__tags fade-in">
+        <span class="tag">UX strategy</span>
+        <span class="tag">Mobile APP</span>
+        <span class="tag">B2B</span>
+      </div>
+      <h1 class="cs-hero__title fade-in">Bike rental service for tourists</h1>
+      <div class="cs-meta fade-in">
+        <div>
+          <p class="cs-meta__label">Role</p>
+          <p class="cs-meta__value">Product Designer</p>
+        </div>
+        <div>
+          <p class="cs-meta__label">Team</p>
+          <p class="cs-meta__value">PM · Engineering · Operation · Financial</p>
+        </div>
+        <div>
+          <p class="cs-meta__label">Timeline</p>
+          <p class="cs-meta__value">Mar – May 2025</p>
+        </div>
+        <div>
+          <p class="cs-meta__label">Platform</p>
+          <p class="cs-meta__value">iOS &amp; Android App</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cover image -->
+  <div class="container">
+    <div class="cs-cover fade-in">
+      <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b81a9f95e908986e9364b4_screenshots-ui.png" alt="MOOVO app UI screenshots" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- ========== PROJECT GOAL ========== -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-section__label fade-in">01 — Project Goal</p>
+      <h2 class="cs-section__title fade-in">Design a low-barrier rental solution for tourism</h2>
+      <div class="cs-section__body fade-in">
+        <p>The initiative aimed to design a low-barrier rental solution that supports tourism scenarios while enabling a scalable product model. Three primary objectives guided the work:</p>
+        <ul>
+          <li>Reduce friction for tourists reluctant to download apps</li>
+          <li>Support service-assisted rentals organized by operators</li>
+          <li>Build an adaptable framework for different tourism locations</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-section__label fade-in">02 — Problem</p>
+      <h2 class="cs-section__title fade-in">The self-service model creates too much friction for tourists</h2>
+      <div class="cs-section__body">
+        <p class="fade-in">The existing self-service model required tourists to download the app, register an account, locate a vehicle, and start an individual rental. This created friction for first-time users or group activities.</p>
+        <p class="fade-in">Tourists in Taiwan's popular destinations — Fulong Beach, Huajiang Riverside Park, Hualien — prefer operator-assisted experiences. They come to relax, not to manage logistics.</p>
+      </div>
+
+      <div class="cs-image fade-in">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698c3cd904b388752a589d67_photot-%E7%94%A8%E5%85%B1%E4%BA%AB%E5%96%AE%E8%BB%8Aapp.png" alt="Tourist friction point" loading="lazy" />
+      </div>
+
+      <div class="cs-quote fade-in">
+        <p>"Participants do not want to manage the rental process themselves. Tourism experiences work better when the operator organizes the ride and participants simply join."</p>
+      </div>
+
+      <div class="cs-image fade-in">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b8facbc512b7b2be597c2f_process-Experiment4.png" alt="Self-service rental model process" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CHALLENGES ========== -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-section__label fade-in">03 — Challenges</p>
+      <h2 class="cs-section__title fade-in">Three core challenges to solve</h2>
+      <div class="cs-section__body fade-in">
+        <ul>
+          <li>Define a product model that works across diverse tourism environments</li>
+          <li>Align product design with on-site operational workflows</li>
+          <li>Deliver a complete solution — from product definition to final UI</li>
+        </ul>
+      </div>
+
+      <div class="cs-image fade-in">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b8d28db79ce50b36662d7c_image-user-problem.jpg" alt="User problem illustration" loading="lazy" />
+      </div>
+
+      <div class="cs-image fade-in">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b8eb8bda8be57d17bf8ff4_table-option3.png" alt="Product challenge options table" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOLUTION ========== -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-section__label fade-in">04 — Solution</p>
+      <h2 class="cs-section__title fade-in">Shift to an operator-managed model</h2>
+      <div class="cs-section__body">
+        <p class="fade-in">Rather than forcing tourists through a self-service flow, the new model empowers operators to manage orders on behalf of groups. This shifts the complexity to the right person — the operator — and reduces friction for participants.</p>
+      </div>
+
+      <div class="cs-image fade-in">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69cd1e675253ef6f848e0965_transform-model-v3.png" alt="Business model transformation" loading="lazy" />
+      </div>
+
+      <div class="cs-two-col fade-in">
+        <div>
+          <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #111;">Operator Workflow</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Operators create and manage orders for group rides before participants arrive. They define ride location, confirm details, and track vehicle locations.</p>
+          <div class="cs-image">
+            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b8f5e3c986553a6d4e70d8_user-flow-v2.png" alt="Operator user flow" loading="lazy" />
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #111;">Participant Experience</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Tourists join rides through operator orders and start riding with minimal setup. They provide only a phone number — no full account registration required.</p>
+          <div class="cs-image">
+            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b8f8f9b0a89d411d0ddb26_function-flow-v2.png" alt="Participant function flow" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WIREFRAMES ========== -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-section__label fade-in">05 — Design Process</p>
+      <h2 class="cs-section__title fade-in">Wireframes as communication tools</h2>
+      <div class="cs-section__body">
+        <p class="fade-in">Initial wireframes served as a communication layer, helping engineers understand process logic and reducing implementation ambiguity. Getting alignment early prevented costly revisions later.</p>
+      </div>
+      <div class="cs-image fade-in">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b90646e23e3a94b10c7d89_wireframe-4.png" alt="Wireframe mockups" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRADE-OFFS ========== -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-section__label fade-in">06 — Trade-offs</p>
+      <h2 class="cs-section__title fade-in">Deliberate constraints that enabled speed</h2>
+      <div class="cs-two-col fade-in">
+        <div style="background: #f8f8f8; border-radius: 16px; padding: 24px;">
+          <h3 style="font-size: 15px; font-weight: 600; color: #111; margin-bottom: 8px;">No dedicated tourist app</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">The existing system was adapted instead of creating a separate lightweight application. This accelerated delivery and avoided fragmented maintenance.</p>
+        </div>
+        <div style="background: #f8f8f8; border-radius: 16px; padding: 24px;">
+          <h3 style="font-size: 15px; font-weight: 600; color: #111; margin-bottom: 8px;">Phased payment integration</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">First version recorded orders as outstanding payments. Cash-payment functionality was integrated in a later phase — shipping the core flow first.</p>
+        </div>
+      </div>
+      <div class="cs-two-col fade-in">
+        <div class="cs-image">
+          <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698c4b839bb2ca3de1a40285_export-context-1.png" alt="" loading="lazy" />
+        </div>
+        <div class="cs-image">
+          <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698c4b830ac4d7d9970fa964_export-context-2.png" alt="" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL INTERFACE ========== -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-section__label fade-in">07 — Final Interface</p>
+      <h2 class="cs-section__title fade-in">User-friendly details that reduce friction</h2>
+
+      <div class="cs-image fade-in">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d76babc4c8c85e187d45d_export-3.png" alt="Final interface design" loading="lazy" />
+      </div>
+
+      <div class="cs-image fade-in">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d98c7b76827c6d65834dc_components-2.png" alt="UI components" loading="lazy" />
+      </div>
+
+      <div class="cs-image fade-in">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d98c70167f544cdd92d21_all-ui.png" alt="Complete UI design" loading="lazy" />
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px;" class="fade-in">
+        <div>
+          <div class="cs-image">
+            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d9f2adcf4f6f9254cd5bf_ui-detail-01.png" alt="Prefilled phone number prefix" loading="lazy" />
+          </div>
+          <p style="font-size: 13px; color: #888; margin-top: 8px;">Prefilled phone number prefix eliminates redundant typing</p>
+        </div>
+        <div>
+          <div class="cs-image">
+            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/699eba9ff11f86bd7baff9f2_ui-detail-02.png" alt="QR scanning feature" loading="lazy" />
+          </div>
+          <p style="font-size: 13px; color: #888; margin-top: 8px;">QR scanning for faster return confirmation</p>
+        </div>
+        <div>
+          <div class="cs-image">
+            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/699eba9f82d677b8cd6e5bdb_ui-detail-04.png" alt="Contextual text guidance" loading="lazy" />
+          </div>
+          <p style="font-size: 13px; color: #888; margin-top: 8px;">Contextual text guidance clarifying page function</p>
+        </div>
+        <div>
+          <div class="cs-image">
+            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d5c06800cce10eeefc0f0_hero-01.png" alt="Dynamic border highlight" loading="lazy" />
+          </div>
+          <p style="font-size: 13px; color: #888; margin-top: 8px;">Dynamic border highlight improves visual recognition on scanned cards</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESULTS ========== -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-section__label fade-in">08 — Results &amp; Impact</p>
+      <h2 class="cs-section__title fade-in">From commuting to leisure — measurable impact</h2>
+      <div class="cs-stat-grid fade-in">
+        <div class="cs-stat">
+          <p class="cs-stat__number">33×</p>
+          <p class="cs-stat__label">Increase in revenue per transaction (NTD 15 → NTD 500)</p>
+        </div>
+        <div class="cs-stat">
+          <p class="cs-stat__number">+50%</p>
+          <p class="cs-stat__label">Order volume increase in tourist locations</p>
+        </div>
+        <div class="cs-stat">
+          <p class="cs-stat__number">1.5–2h</p>
+          <p class="cs-stat__label">Average ride duration (up from ~20 min)</p>
+        </div>
+      </div>
+      <div class="cs-section__body">
+        <p class="fade-in">The project shifted focus from isolated user needs to enabling scalable rental models. Tourist locations with the new operator flow saw over 50% higher station utilization.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== KEY LEARNING ========== -->
+  <section class="cs-section">
+    <div class="container">
+      <p class="cs-section__label fade-in">09 — Reflection</p>
+      <h2 class="cs-section__title fade-in">Delivering tasks is only part of the responsibility</h2>
+      <div class="cs-section__body">
+        <div class="cs-quote fade-in">
+          <p>"Proactively aligning timelines and sharing progress with internal team members improved communication, built trust, and helped move the project forward more smoothly."</p>
+        </div>
+        <p class="fade-in">This project reinforced that great design work isn't just about the artifacts — it's about the relationships and clarity you build along the way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEXT CASE STUDY ========== -->
+  <section class="cs-next">
+    <div class="container">
+      <p class="cs-next__label">Next case study</p>
+      <a href="rider-app-to-track-your-bike.html" class="cs-next__card">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d89b60a496852ed60be2c_signup-cover.png" alt="Rider App" loading="lazy" />
+        <div>
+          <p class="cs-next__card-title">Rider App experience optimization</p>
+          <p class="cs-next__card-desc">Design system · Business goal · B2C</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__brand-name">Beatrice.design</p>
+          <p class="footer__brand-desc">Product Designer based in New Taipei City, Taiwan. Turning complex problems into intuitive product experiences.</p>
+        </div>
+        <div>
+          <p class="footer__heading">Works</p>
+          <ul class="footer__link-list">
+            <li><a href="case-study-moovo.html">Bike rental for tourists</a></li>
+            <li><a href="#">Booking process optimization</a></li>
+            <li><a href="rider-app-to-track-your-bike.html">Rider App optimization</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__heading">Contact</p>
+          <div class="footer__contact-item"><a href="mailto:beatricesung@gmail.com">beatricesung@gmail.com</a></div>
+          <div class="footer__contact-item"><a href="tel:+886912345678">+886 912 345 678</a></div>
+          <div class="footer__contact-item">New Taipei City, Taiwan</div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">Ⓒ 2026, Beatrice Sung</p>
+        <div class="footer__social">
+          <a href="https://www.linkedin.com/in/beatricesung" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/beatricesung" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
