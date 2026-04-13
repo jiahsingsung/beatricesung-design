@@ -9,30 +9,7 @@
 </head>
 <body>
 
-  <!-- ========== NAV ========== -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="../index.html" class="nav__logo">
-          <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698b0ffdcd13e1ce814c77a6_yy-face-icon-2-05.svg" alt="Beatrice Sung" />
-          Beatrice.design
-        </a>
-        <nav class="nav__links">
-          <a href="case-study-moovo.html" class="nav__link active">🚲 works</a>
-          <a href="about-me.html" class="nav__link">👀 about</a>
-          <a href="https://drive.google.com/file/d/1y4C-jhE_W__KV4J6Wyw2Uy5J8vODWqsi/view" target="_blank" class="nav__link nav__link--resume">🔗 resume</a>
-        </nav>
-        <button class="nav__hamburger" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-    <div class="nav__mobile">
-      <a href="case-study-moovo.html" class="nav__link active">🚲 works</a>
-      <a href="about-me.html" class="nav__link">👀 about</a>
-      <a href="https://drive.google.com/file/d/1y4C-jhE_W__KV4J6Wyw2Uy5J8vODWqsi/view" target="_blank" class="nav__link nav__link--resume">🔗 resume</a>
-    </div>
-  </nav>
+  <div id="site-nav"></div>
 
   <!-- ========== CASE STUDY HERO ========== -->
   <section class="cs-hero">
@@ -67,7 +44,7 @@
   <!-- Cover image -->
   <div class="container">
     <div class="cs-cover fade-in">
-      <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b81a9f95e908986e9364b4_screenshots-ui.png" alt="MOOVO app UI screenshots" loading="lazy" />
+      <img src="../assets/images/moovo-hero.png" alt="MOOVO app UI screenshots" loading="lazy" />
     </div>
   </div>
 
@@ -97,17 +74,14 @@
         <p class="fade-in">Tourists in Taiwan's popular destinations — Fulong Beach, Huajiang Riverside Park, Hualien — prefer operator-assisted experiences. They come to relax, not to manage logistics.</p>
       </div>
 
-      <div class="cs-image fade-in">
-        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698c3cd904b388752a589d67_photot-%E7%94%A8%E5%85%B1%E4%BA%AB%E5%96%AE%E8%BB%8Aapp.png" alt="Tourist friction point" loading="lazy" />
+      <div class="cs-image fade-in" style="aspect-ratio: 16 / 9; overflow: hidden;">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698c3cd904b388752a589d67_photot-%E7%94%A8%E5%85%B1%E4%BA%AB%E5%96%AE%E8%BB%8Aapp.png" alt="Tourist friction point" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
       </div>
 
       <div class="cs-quote fade-in">
         <p>"Participants do not want to manage the rental process themselves. Tourism experiences work better when the operator organizes the ride and participants simply join."</p>
       </div>
 
-      <div class="cs-image fade-in">
-        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b8facbc512b7b2be597c2f_process-Experiment4.png" alt="Self-service rental model process" loading="lazy" />
-      </div>
     </div>
   </section>
 
@@ -128,9 +102,6 @@
         <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b8d28db79ce50b36662d7c_image-user-problem.jpg" alt="User problem illustration" loading="lazy" />
       </div>
 
-      <div class="cs-image fade-in">
-        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69b8eb8bda8be57d17bf8ff4_table-option3.png" alt="Product challenge options table" loading="lazy" />
-      </div>
     </div>
   </section>
 
@@ -143,12 +114,12 @@
         <p class="fade-in">Rather than forcing tourists through a self-service flow, the new model empowers operators to manage orders on behalf of groups. This shifts the complexity to the right person — the operator — and reduces friction for participants.</p>
       </div>
 
-      <div class="cs-image fade-in">
+      <div class="cs-image fade-in" style="max-width: 50%; background: transparent;">
         <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/69cd1e675253ef6f848e0965_transform-model-v3.png" alt="Business model transformation" loading="lazy" />
       </div>
 
-      <div class="cs-two-col fade-in">
-        <div>
+      <div class="fade-in">
+        <div style="margin-bottom: 40px;">
           <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #111;">Operator Workflow</h3>
           <p style="font-size: 14px; color: #666; line-height: 1.6;">Operators create and manage orders for group rides before participants arrive. They define ride location, confirm details, and track vehicle locations.</p>
           <div class="cs-image">
@@ -212,42 +183,48 @@
       <p class="cs-section__label fade-in">07 — Final Interface</p>
       <h2 class="cs-section__title fade-in">User-friendly details that reduce friction</h2>
 
+      <div class="fade-in" style="display: flex; justify-content: center; margin: 32px 0 64px;">
+        <video
+          src="../assets/moovo-demo.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          style="width: 320px; border-radius: 32px; box-shadow: 0 0 0 4px rgba(0,0,0,0.20), 0 24px 64px rgba(0,0,0,0.12);"
+        ></video>
+      </div>
+
       <div class="cs-image fade-in">
         <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d76babc4c8c85e187d45d_export-3.png" alt="Final interface design" loading="lazy" />
       </div>
 
-      <div class="cs-image fade-in">
-        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d98c7b76827c6d65834dc_components-2.png" alt="UI components" loading="lazy" />
+      <div class="cs-two-col fade-in">
+        <div class="cs-image">
+          <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d98c7b76827c6d65834dc_components-2.png" alt="UI components" loading="lazy" />
+        </div>
+        <div class="cs-image">
+          <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d98c70167f544cdd92d21_all-ui.png" alt="Complete UI design" loading="lazy" />
+        </div>
       </div>
 
-      <div class="cs-image fade-in">
-        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d98c70167f544cdd92d21_all-ui.png" alt="Complete UI design" loading="lazy" />
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px;" class="fade-in">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px;" class="fade-in">
         <div>
-          <div class="cs-image">
-            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d9f2adcf4f6f9254cd5bf_ui-detail-01.png" alt="Prefilled phone number prefix" loading="lazy" />
+          <div class="cs-image" style="aspect-ratio: 1 / 1; overflow: hidden; padding: 1rem 0;">
+            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d9f2adcf4f6f9254cd5bf_ui-detail-01.png" alt="Prefilled phone number prefix" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
           </div>
           <p style="font-size: 13px; color: #888; margin-top: 8px;">Prefilled phone number prefix eliminates redundant typing</p>
         </div>
         <div>
-          <div class="cs-image">
-            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/699eba9ff11f86bd7baff9f2_ui-detail-02.png" alt="QR scanning feature" loading="lazy" />
+          <div class="cs-image" style="aspect-ratio: 1 / 1; overflow: hidden; padding: 1rem 0;">
+            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/699eba9ff11f86bd7baff9f2_ui-detail-02.png" alt="QR scanning feature" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
           </div>
           <p style="font-size: 13px; color: #888; margin-top: 8px;">QR scanning for faster return confirmation</p>
         </div>
         <div>
-          <div class="cs-image">
-            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/699eba9f82d677b8cd6e5bdb_ui-detail-04.png" alt="Contextual text guidance" loading="lazy" />
+          <div class="cs-image" style="aspect-ratio: 1 / 1; overflow: hidden; padding: 1rem 0;">
+            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/699eba9f82d677b8cd6e5bdb_ui-detail-04.png" alt="Contextual text guidance" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
           </div>
           <p style="font-size: 13px; color: #888; margin-top: 8px;">Contextual text guidance clarifying page function</p>
-        </div>
-        <div>
-          <div class="cs-image">
-            <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d5c06800cce10eeefc0f0_hero-01.png" alt="Dynamic border highlight" loading="lazy" />
-          </div>
-          <p style="font-size: 13px; color: #888; margin-top: 8px;">Dynamic border highlight improves visual recognition on scanned cards</p>
         </div>
       </div>
     </div>
@@ -296,49 +273,19 @@
   <section class="cs-next">
     <div class="container">
       <p class="cs-next__label">Next case study</p>
-      <a href="rider-app-to-track-your-bike.html" class="cs-next__card">
-        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698d89b60a496852ed60be2c_signup-cover.png" alt="Rider App" loading="lazy" />
+      <a href="case-study-booking-website.html" class="cs-next__card">
+        <img src="https://cdn.prod.website-files.com/6989f088d5faa64f49f5910e/698afe0c1aa8292fd4488117_home_workPic_signup1.jpg" alt="Booking Website" loading="lazy" />
         <div>
-          <p class="cs-next__card-title">Rider App experience optimization</p>
-          <p class="cs-next__card-desc">Design system · Business goal · B2C</p>
+          <p class="cs-next__card-title">Optimization of bike rental booking process in US &amp; EU</p>
+          <p class="cs-next__card-desc">Reservation website · B2C</p>
         </div>
       </a>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div>
-          <p class="footer__brand-name">Beatrice.design</p>
-          <p class="footer__brand-desc">Product Designer based in New Taipei City, Taiwan. Turning complex problems into intuitive product experiences.</p>
-        </div>
-        <div>
-          <p class="footer__heading">Works</p>
-          <ul class="footer__link-list">
-            <li><a href="case-study-moovo.html">Bike rental for tourists</a></li>
-            <li><a href="#">Booking process optimization</a></li>
-            <li><a href="rider-app-to-track-your-bike.html">Rider App optimization</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer__heading">Contact</p>
-          <div class="footer__contact-item"><a href="mailto:beatricesung@gmail.com">beatricesung@gmail.com</a></div>
-          <div class="footer__contact-item"><a href="tel:+886912345678">+886 912 345 678</a></div>
-          <div class="footer__contact-item">New Taipei City, Taiwan</div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p class="footer__copy">Ⓒ 2026, Beatrice Sung</p>
-        <div class="footer__social">
-          <a href="https://www.linkedin.com/in/beatricesung" target="_blank">LinkedIn</a>
-          <a href="https://www.instagram.com/beatricesung" target="_blank">Instagram</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
+  <script src="../js/components.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

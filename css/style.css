@@ -136,6 +136,114 @@ ul {
   color: #fff;
 }
 
+/* Theme Toggle Float Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
+}
+
+.theme-toggle .icon-moon { display: block; }
+.theme-toggle .icon-sun  { display: none; }
+
+[data-theme="dark"] .theme-toggle {
+  background: #e0e0e0;
+  color: #111;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+
+/* Dropdown */
+.nav__dropdown {
+  position: relative;
+}
+
+.nav__dropdown-toggle {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav__dropdown-toggle::after {
+  content: '▾';
+  font-size: 10px;
+  transition: transform 0.2s;
+  opacity: 0.6;
+}
+
+.nav__dropdown.open .nav__dropdown-toggle,
+.nav__dropdown-toggle:hover {
+  background: #f4f4f4;
+  color: #111;
+}
+
+.nav__dropdown.open .nav__dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.nav__dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  padding: 6px;
+  min-width: 280px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+}
+
+.nav__dropdown.open .nav__dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__dropdown-item {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #444;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav__dropdown-item:hover {
+  background: #f4f4f4;
+  color: #111;
+}
+
 /* Hamburger */
 .nav__hamburger {
   display: none;
@@ -297,14 +405,11 @@ ul {
   border-radius: 16px;
   overflow: hidden;
   background: #f8f8f8;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   cursor: pointer;
   display: block;
-}
-
-.work-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+  transform-style: preserve-3d;
 }
 
 .work-card--coming-soon {
@@ -312,8 +417,28 @@ ul {
 }
 
 .work-card--coming-soon:hover {
-  transform: none;
-  box-shadow: none;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---------- Cursor glow ---------- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(90, 90, 255, 0.10) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  mix-blend-mode: normal;
+}
+
+[data-theme="dark"] .cursor-glow {
+  background: radial-gradient(circle, rgba(120, 120, 255, 0.14) 0%, transparent 70%);
 }
 
 .work-card__image {
@@ -507,7 +632,7 @@ ul {
 
 .footer__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
   margin-bottom: 48px;
 }
@@ -940,7 +1065,225 @@ ul {
   font-weight: 500;
 }
 
+/* ---------- Problem Statement Cards ---------- */
+.cs-problem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.cs-problem-card {
+  background: rgba(9, 0, 255, 0.06);
+  border-radius: 16px;
+  padding: 28px 40px;
+}
+
+.cs-problem-card p,
+.cs-problem-card li {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4e4a4a;
+  margin: 0;
+}
+
+.cs-problem-card ol,
+.cs-problem-card ul {
+  padding-left: 24px;
+  margin-top: 8px;
+}
+
+.cs-problem-card li {
+  margin-bottom: 6px;
+}
+
+/* ---------- Feature Tags ---------- */
+.cs-feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.cs-feature-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #111;
+  border-radius: 48px;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+  background: #fafbff;
+}
+
+/* ---------- Feature Flow (Option E) ---------- */
+.cs-feature-flow {
+  margin-top: 32px;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 600;
+  line-height: 1.6;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+.cs-feature-flow span {
+  color: #bbb;
+  margin: 0 6px;
+}
+
+/* ---------- Before / After Comparison Slider ---------- */
+.cs-sliders {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.cs-slider__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 0.04em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cs-slider__title:first-child {
+  margin-top: 0;
+}
+
+.cs-slider {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: col-resize;
+  user-select: none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* height is set by the before image */
+}
+
+.cs-slider__img {
+  display: block;
+  width: 100%;
+}
+
+.cs-slider__img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.cs-slider__img--after {
+  /* sits behind as baseline */
+}
+
+.cs-slider__img--before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  clip-path: inset(0 50% 0 0);
+}
+
+.cs-slider__img--before img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cs-slider__divider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: #fff;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.cs-slider__handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.cs-slider__label {
+  position: absolute;
+  bottom: 16px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.cs-slider__label--before {
+  left: 16px;
+}
+
+.cs-slider__label--after {
+  right: 16px;
+}
+
+@keyframes sliderHint {
+  0%   { transform: translateX(-50%); }
+  20%  { transform: translateX(calc(-50% - 8px)); }
+  50%  { transform: translateX(calc(-50% + 8px)); }
+  70%  { transform: translateX(calc(-50% - 4px)); }
+  85%  { transform: translateX(calc(-50% + 4px)); }
+  100% { transform: translateX(-50%); }
+}
+
+.cs-slider.is-hinting .cs-slider__divider {
+  animation: sliderHint 0.85s ease-in-out;
+}
+
 /* ---------- Responsive ---------- */
+
+/* Large screens: 1440px+ (external monitors, iMac) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  .hero__name {
+    font-size: 60px;
+  }
+
+  .works__grid {
+    gap: 32px;
+  }
+
+  .expertise__grid {
+    gap: 40px 56px;
+  }
+}
 @media (max-width: 900px) {
   .services__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -985,6 +1328,108 @@ ul {
   }
 }
 
+/* ---------- Dark Mode ---------- */
+[data-theme="dark"] body {
+  background-color: #141414;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(20, 20, 20, 0.95);
+  border-bottom-color: #272727;
+}
+
+[data-theme="dark"] .nav__logo { color: #e0e0e0; }
+[data-theme="dark"] .nav__hamburger span { background: #e0e0e0; }
+
+[data-theme="dark"] .nav__link { color: #999; }
+[data-theme="dark"] .nav__link:hover,
+[data-theme="dark"] .nav__link.active { background: #242424; color: #fff; }
+
+[data-theme="dark"] .nav__link--resume { background: #e0e0e0; color: #111; }
+[data-theme="dark"] .nav__link--resume:hover { background: #bbb; color: #111; }
+
+[data-theme="dark"] .nav__theme-toggle { color: #999; }
+[data-theme="dark"] .nav__theme-toggle:hover { background: #242424; color: #fff; }
+
+[data-theme="dark"] .nav__dropdown-toggle { color: #999; }
+[data-theme="dark"] .nav__dropdown-toggle:hover,
+[data-theme="dark"] .nav__dropdown.open .nav__dropdown-toggle { background: #242424; color: #fff; }
+
+[data-theme="dark"] .nav__dropdown-menu {
+  background: #1c1c1c;
+  border-color: #2a2a2a;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .nav__dropdown-item { color: #999; }
+[data-theme="dark"] .nav__dropdown-item:hover { background: #242424; color: #fff; }
+
+[data-theme="dark"] .nav__mobile { background: #141414; border-top-color: #272727; }
+
+[data-theme="dark"] .hero__name { color: #e0e0e0; }
+[data-theme="dark"] .hero__desc p { color: #999; }
+
+[data-theme="dark"] .works { border-top-color: #272727; }
+[data-theme="dark"] .work-card { background: #1c1c1c; }
+[data-theme="dark"] .work-card:hover { box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5); }
+[data-theme="dark"] .work-card__image { background: #272727; }
+[data-theme="dark"] .work-card__title { color: #e0e0e0; }
+[data-theme="dark"] .work-card__desc { color: #888; }
+[data-theme="dark"] .tag { background: #272727; color: #999; }
+[data-theme="dark"] .work-card__coming-soon { background: #e0e0e0; color: #111; }
+
+[data-theme="dark"] .section-header__title { color: #e0e0e0; }
+[data-theme="dark"] .expertise { border-top-color: #272727; }
+[data-theme="dark"] .expertise-item__title { color: #e0e0e0; }
+[data-theme="dark"] .expertise-item__desc { color: #888; }
+
+[data-theme="dark"] .footer { background: #0c0c0c; }
+[data-theme="dark"] .footer__bottom { border-top-color: #1e1e1e; }
+
+[data-theme="dark"] .cs-hero { border-bottom-color: #272727; }
+[data-theme="dark"] .cs-hero__title { color: #e0e0e0; }
+[data-theme="dark"] .cs-meta { border-top-color: #272727; }
+[data-theme="dark"] .cs-meta__value { color: #ccc; }
+[data-theme="dark"] .cs-cover { background: #1c1c1c; }
+
+[data-theme="dark"] .cs-section { border-top-color: #272727; }
+[data-theme="dark"] .cs-section__title { color: #e0e0e0; }
+[data-theme="dark"] .cs-section__body p,
+[data-theme="dark"] .cs-section__body li { color: #999; }
+[data-theme="dark"] .cs-image { background: #1c1c1c; }
+
+[data-theme="dark"] .cs-problem-card { background: rgba(80, 80, 255, 0.07); }
+[data-theme="dark"] .cs-problem-card p,
+[data-theme="dark"] .cs-problem-card li { color: #bbb; }
+
+[data-theme="dark"] .cs-feature-flow { color: #e0e0e0; }
+[data-theme="dark"] .cs-feature-flow span { color: #444; }
+[data-theme="dark"] .cs-feature-tag { background: #1c1c1c; border-color: #444; color: #ccc; }
+
+[data-theme="dark"] .cs-slider__title { color: #666; }
+[data-theme="dark"] .cs-slider__handle { background: #e0e0e0; }
+
+[data-theme="dark"] .cs-stat { background: #1c1c1c; }
+[data-theme="dark"] .cs-stat__number { color: #e0e0e0; }
+[data-theme="dark"] .cs-stat__label { color: #888; }
+
+[data-theme="dark"] .cs-next { border-top-color: #272727; }
+[data-theme="dark"] .cs-next__card { background: #1c1c1c; }
+[data-theme="dark"] .cs-next__card:hover { box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4); }
+[data-theme="dark"] .cs-next__card-title { color: #e0e0e0; }
+[data-theme="dark"] .cs-next__card-desc { color: #888; }
+
+[data-theme="dark"] .about-hero__name { color: #e0e0e0; }
+[data-theme="dark"] .about-hero__bio { color: #999; }
+[data-theme="dark"] .about-hero__photo { background: #1c1c1c; }
+[data-theme="dark"] .about-section { border-top-color: #272727; }
+[data-theme="dark"] .about-section__title { color: #e0e0e0; }
+[data-theme="dark"] .about-section__body p { color: #999; }
+[data-theme="dark"] .about-photos .photo { background: #1c1c1c; }
+[data-theme="dark"] .interest-tag { background: #1c1c1c; color: #ccc; }
+
+/* ---------- Responsive ---------- */
 @media (max-width: 640px) {
   .container {
     padding: 0 20px;
