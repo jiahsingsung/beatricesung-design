@@ -25,14 +25,14 @@
         </a>
         <nav class="nav__links">
           <div class="nav__dropdown">
-            <button class="nav__dropdown-toggle">🚲 works</button>
+            <button class="nav__dropdown-toggle">🚲 Works</button>
             <div class="nav__dropdown-menu">
               <a href="${e}case-study-moovo.html" class="nav__dropdown-item">Bike rental for tourists</a>
-              <a href="${e}case-study-booking-website.html" class="nav__dropdown-item">Booking process optimization</a>
+              <a href="${e}case-study-booking-website.html" class="nav__dropdown-item">Bike rental booking in US & EU</a>
               <a href="${e}case-study-rider-app.html" class="nav__dropdown-item">Rider App optimization</a>
             </div>
           </div>
-          <a href="${RESUME}" target="_blank" class="nav__link nav__link--resume">🔗 resume</a>
+          <a href="${RESUME}" target="_blank" class="nav__link nav__link--resume">🔗 Resume</a>
         </nav>
         <button class="nav__hamburger" aria-label="Open menu">
           <span></span><span></span><span></span>
@@ -41,9 +41,9 @@
     </div>
     <div class="nav__mobile">
       <a href="${e}case-study-moovo.html" class="nav__link">Bike rental for tourists</a>
-      <a href="${e}case-study-booking-website.html" class="nav__link">Booking process optimization</a>
+      <a href="${e}case-study-booking-website.html" class="nav__link">Bike rental booking in US & EU</a>
       <a href="${e}case-study-rider-app.html" class="nav__link">Rider App optimization</a>
-      <a href="${RESUME}" target="_blank" class="nav__link nav__link--resume">🔗 resume</a>
+      <a href="${RESUME}" target="_blank" class="nav__link nav__link--resume">🔗 Resume</a>
     </div>
   </nav>`;
   }
