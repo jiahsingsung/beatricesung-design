@@ -136,6 +136,36 @@ ul {
   color: #fff;
 }
 
+/* Secret nav link — emoji only, text slides in on hover */
+.nav__link--secret {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+}
+
+.nav__secret-emoji {
+  flex-shrink: 0;
+}
+
+.nav__secret-text {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  transition:
+    max-width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease,
+    margin-left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-left: 0;
+}
+
+.nav__link--secret:hover .nav__secret-text {
+  max-width: 120px;
+  opacity: 1;
+  margin-left: 6px;
+}
+
 /* Theme Toggle Float Button */
 .theme-toggle {
   position: fixed;
@@ -1860,77 +1890,71 @@ body.drawer-open {
    About Page — Color Theme
    ============================ */
 
-/* Page base: all yellow */
+/* Page base: full-bleed background photo */
 body.about-page {
-  background-color: #ffe566;
+  background-color: #6a8a7a;
+  background-image: url('../assets/images/about-bg-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
-.about-page .about-hero {
-  padding-top: 80px;
-  padding-bottom: 80px;
+/* Subtle top gradient so nav text stays readable over any sky */
+body.about-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), transparent);
+  pointer-events: none;
+  z-index: 99;
 }
 
-.about-page .about-section--yellow {
-  border-top: none;
-}
-
-.about-page .about-section--blue {
-  border-top: none;
-}
-
-.about-page .about-section--blue .interest-tag {
-  background: rgba(0, 0, 0, 0.08);
-  color: #111;
-  border: none;
-}
-
-/* Nav on about-page: yellow */
+/* Nav on about-page: transparent over photo */
 .about-page .nav {
-  background: #ffe566;
+  background: transparent;
   border-bottom: none;
 }
 
 .about-page .nav__logo { color: #111; }
-.about-page .nav__link { color: #333; }
+.about-page .nav__link { color: #222; }
 .about-page .nav__link:hover,
 .about-page .nav__link.active {
-  background: rgba(0, 0, 0, 0.07);
+  background: rgba(255, 255, 255, 0.35);
   color: #111;
 }
 .about-page .nav__link--resume {
-  background: #111;
+  background: rgba(0, 0, 0, 0.65);
   color: #fff;
+  backdrop-filter: blur(4px);
 }
 .about-page .nav__link--resume:hover {
-  background: #333;
+  background: rgba(0, 0, 0, 0.85);
 }
-.about-page .nav__dropdown-toggle { color: #333; }
+.about-page .nav__dropdown-toggle { color: #222; }
 .about-page .nav__dropdown-toggle:hover {
-  background: rgba(0, 0, 0, 0.07);
+  background: rgba(255, 255, 255, 0.35);
   color: #111;
 }
-
-/* Section dividers on about-page */
-.about-page .about-section {
-  border-top: 1px dashed #111;
-}
-
-.about-page .about-section--yellow {
-  border-top: 1px dashed #111;
-}
-
-.about-page .about-section--blue {
-  border-top: 1px dashed #111;
+.about-page .nav__dropdown-menu {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
 }
 
 /* Dark mode overrides for about-page (need higher specificity to beat yellow rules) */
 [data-theme="dark"] body.about-page {
-  background-color: #111;
+  background-color: #1a1a1a;
+  /* keep the photo but darkened */
+  background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('../assets/images/about-bg-photo.jpg');
 }
 
 [data-theme="dark"] .about-page .nav {
-  background: #111;
-  border-bottom: 1px solid #272727;
+  background: transparent;
+  border-bottom: none;
 }
 
 [data-theme="dark"] .about-page .nav__logo { color: #e0e0e0; }
@@ -1968,9 +1992,9 @@ body.about-page {
   color: #ccc;
 }
 
-/* Cursor glow — purple on yellow background */
+/* Cursor glow — softer on photo background */
 body.about-page .cursor-glow {
-  background: radial-gradient(circle, rgba(140, 60, 230, 0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
   mix-blend-mode: normal;
 }
 
@@ -2060,3 +2084,580 @@ body.about-page .cursor-glow {
 .about-hero__photo img {
   will-change: transform;
 }
+
+/* ============================
+   About Page — Album / Book Spread
+   ============================ */
+
+.album-section {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 80px;
+}
+
+/* ── Book spread ── */
+.album {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  background-color: #fff;
+  /* stacked-pages shadow offset left-down like Figma */
+  box-shadow: -10px 13px 0px 0px rgba(0, 0, 0, 0.06), 0 24px 64px rgba(0, 0, 0, 0.11);
+  border: 3px solid #fff;
+  border-radius: 3px;
+  height: 580px;
+}
+
+/* ── Eucalyptus plant — inside left page, top-right ── */
+.album__plant {
+  position: absolute;
+  right: -10px;
+  top: -12px;
+  height: 64%;
+  width: auto;
+  transform: rotate(14deg);
+  transform-origin: top right;
+  pointer-events: none;
+  z-index: 3;
+  user-select: none;
+}
+
+/* ── LEFT PAGE: lined paper + photo ── */
+.album__left {
+  position: relative;
+  width: 46%;
+  flex-shrink: 0;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Lined paper texture */
+  background-color: #fff;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 23px,
+    rgba(0, 0, 0, 0.07) 23px,
+    rgba(0, 0, 0, 0.07) 24px
+  );
+  background-size: 100% 24px;
+}
+
+/* Spine shadow — thin gradient on right edge */
+.album__left::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 18px;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.06));
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ── Photo with padding, fully shown ── */
+.album__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.album__photo--dark { display: none; }
+
+[data-theme="dark"] .album__photo--light { display: none; }
+[data-theme="dark"] .album__photo--dark  { display: block; }
+
+/* ── Quote card — torn paper strip, bottom-left ── */
+.album__quote-card {
+  position: absolute;
+  bottom: 18px;
+  left: 14px;
+  width: 50%;
+  background: #f7f5e5;
+  padding: 16px 16px 18px;
+  transform: rotate(-1.76deg);
+  z-index: 15;
+  /* drop-shadow follows the clip-path outline */
+  filter: drop-shadow(1px 3px 4px rgba(0, 0, 0, 0.18));
+  /* torn paper edges — jagged top and bottom */
+  clip-path: polygon(
+    0%   16%, 4%   4%,  8%  18%, 13%  5%, 18%  20%, 24%  6%,
+    30%  19%, 36%  3%, 42%  17%, 48%  5%, 54%  20%, 60%  7%,
+    66%  18%, 72%  4%, 78%  16%, 84%  3%, 90%  17%, 96%  5%, 100% 13%,
+    100% 80%, 96%  92%, 90%  78%, 84%  93%, 78%  79%, 72%  94%,
+    66%  80%, 60%  95%, 54%  79%, 48%  93%, 42%  78%, 36%  92%,
+    30%  77%, 24%  91%, 18%  77%, 13%  93%, 8%   78%, 4%   90%, 0%  80%
+  );
+}
+
+.album__quote-card p {
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: #505014;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── RIGHT PAGE: lined paper bg, grey card floats inside ── */
+.album__right {
+  flex: 1;
+  display: flex;
+  border-radius: 0;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+  padding: 40px 0;
+  align-items: stretch;
+}
+
+/* Notebook paper — stops before tab column so tabs "stick out" */
+.album__right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 58px);
+  height: 100%;
+  background-color: #fff;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 23px,
+    rgba(0, 0, 0, 0.07) 23px,
+    rgba(0, 0, 0, 0.07) 24px
+  );
+  background-size: 100% 24px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Content panels: the floating grey card ── */
+.album__panels {
+  flex: 1;
+  padding: 36px 36px 36px 44px;
+  min-width: 0;
+  background: #f5f3f3;
+  border-radius: 6px 0 0 6px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.album__content {
+  display: none;
+}
+
+.album__content--active {
+  display: block;
+  animation: albumPanelIn 0.25s ease both;
+}
+
+@keyframes albumPanelIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.album__lead {
+  font-size: 20px;
+  font-weight: 400;
+  color: #111;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.album__content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+  margin-bottom: 0;
+  margin-top: 14px;
+}
+
+/* Interest tags */
+.album__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.album__tags span {
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.07);
+  color: #333;
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+/* ── Tabs — file-folder style, right edge ── */
+.album__tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  gap: 0;
+  flex-shrink: 0;
+  width: 58px;
+  position: relative;
+  z-index: 1;
+}
+
+.album__tab {
+  writing-mode: vertical-rl;
+  transform: none;
+  font-family: 'Caveat', cursive;
+  font-size: 15px;
+  font-weight: 700;
+  color: #777;
+  background: #d0cece;
+  border: none;
+  cursor: pointer;
+  width: 58px;
+  height: 130px;
+  border-radius: 0 10px 10px 0;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  line-height: 1.2;
+  text-align: center;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.10);
+}
+
+.album__tab:hover {
+  background: #e0dede;
+  color: #333;
+}
+
+/* Active: same bg as content panel — looks "pulled forward" */
+.album__tab--active {
+  background: #f5f3f3;
+  color: #111;
+  box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.13);
+}
+
+/* ── Mobile ── */
+@media (max-width: 720px) {
+  .album {
+    flex-direction: column;
+    height: auto;
+    border: none;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  }
+
+  .album__left {
+    width: 100%;
+    min-height: 280px;
+  }
+
+  .album__plant {
+    left: 50%;
+    top: -16px;
+    height: 60%;
+    transform: rotate(17deg) translateX(-50%);
+  }
+
+  /* Stack panels above tabs */
+  .album__right {
+    flex-direction: column;
+    padding: 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Full-width notebook background on mobile */
+  .album__right::before {
+    width: 100%;
+  }
+
+  .album__panels {
+    margin-left: 0;
+    border-radius: 0;
+    min-height: 220px;
+  }
+
+  .album__tabs {
+    flex-direction: row;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    position: static;
+  }
+
+  .album__tab {
+    writing-mode: horizontal-tb;
+    transform: none;
+    width: auto;
+    height: auto;
+    flex: 1;
+    padding: 12px 8px;
+    border-radius: 0;
+    font-size: 14px;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .album__tab--active {
+    background: #f5f3f3;
+  }
+}
+
+/* ── Dark mode ── */
+[data-theme="dark"] .album {
+  background-color: #1c1c1c;
+  box-shadow: -10px 13px 0px 0px rgba(0, 0, 0, 0.2), 0 24px 64px rgba(0, 0, 0, 0.5);
+  border-color: #2a2a2a;
+}
+
+[data-theme="dark"] .album__left {
+  background-color: #1a1a1a;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 23px,
+    rgba(255, 255, 255, 0.05) 23px,
+    rgba(255, 255, 255, 0.05) 24px
+  );
+}
+
+[data-theme="dark"] .album__quote-card {
+  background: #1e1c0a;
+  border-color: rgba(255, 255, 200, 0.1);
+}
+
+[data-theme="dark"] .album__quote-card p { color: #a0a060; }
+
+[data-theme="dark"] .album__right::before {
+  background-color: #242424;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 23px,
+    rgba(255, 255, 255, 0.05) 23px,
+    rgba(255, 255, 255, 0.05) 24px
+  );
+}
+
+[data-theme="dark"] .album__panels { background: #2c2c2c; }
+
+[data-theme="dark"] .album__lead { color: #e0e0e0; }
+[data-theme="dark"] .album__content p { color: #bbb; }
+
+[data-theme="dark"] .album__tags span {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ccc;
+}
+
+[data-theme="dark"] .album__tab {
+  background: #333;
+  color: #888;
+}
+
+[data-theme="dark"] .album__tab:hover {
+  background: #3a3a3a;
+  color: #bbb;
+}
+
+[data-theme="dark"] .album__tab--active {
+  background: #2c2c2c;
+  color: #e0e0e0;
+}
+
+/* ============================
+   Playground Page
+   ============================ */
+
+/* ── Hero ── */
+.pg-hero {
+  padding: 80px 0 56px;
+}
+
+.pg-hero__eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 16px;
+}
+
+.pg-hero__title {
+  font-size: clamp(36px, 5.5vw, 68px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.pg-hero__desc {
+  font-size: 17px;
+  color: #666;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* ── Grid ── */
+.pg-section {
+  padding: 0 0 96px;
+}
+
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Card ── */
+.pg-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f8f8f8;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+}
+
+.pg-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+}
+
+/* ── Card visual header ── */
+.pg-card__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  font-size: 64px;
+  line-height: 1;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.pg-card:hover .pg-card__visual {
+  transform: scale(1.05);
+}
+
+.pg-card__visual--pink     { background: #FFE4D6; }
+.pg-card__visual--mint     { background: #D4F0E4; }
+.pg-card__visual--lavender { background: #E4DCFF; }
+
+.pg-card__emoji {
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+}
+
+/* ── Card body ── */
+.pg-card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.pg-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.pg-card__tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #888;
+  background: #ebebeb;
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+
+.pg-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.pg-card__desc {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.pg-card__cta {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  letter-spacing: 0.01em;
+}
+
+.pg-card--soon {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.pg-card--soon:hover {
+  transform: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.pg-card__tag--soon {
+  background: #e8e8e8;
+  color: #aaa;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .pg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pg-hero {
+    padding: 56px 0 40px;
+  }
+}
+
+/* ── Dark mode ── */
+[data-theme="dark"] .pg-hero__title { color: #e0e0e0; }
+[data-theme="dark"] .pg-hero__desc  { color: #888; }
+
+[data-theme="dark"] .pg-card {
+  background: #1c1c1c;
+}
+[data-theme="dark"] .pg-card:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+[data-theme="dark"] .pg-card__visual--pink     { background: #3d2a24; }
+[data-theme="dark"] .pg-card__visual--mint     { background: #1e3329; }
+[data-theme="dark"] .pg-card__visual--lavender { background: #2c2540; }
+[data-theme="dark"] .pg-card__tag  { background: #272727; color: #777; }
+[data-theme="dark"] .pg-card__title { color: #e0e0e0; }
+[data-theme="dark"] .pg-card__desc  { color: #777; }
+[data-theme="dark"] .pg-card__cta   { color: #ccc; }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Beatrice Sung</title>
+  <meta name="description" content="About Beatrice Sung — Product Designer with 5+ years of experience based in New Taipei City, Taiwan." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="about-page">
+
+  <div id="site-nav"></div>
+
+  <section class="album-section">
+    <div class="album">
+
+      <!-- ── LEFT PAGE ── -->
+      <div class="album__left">
+        <img class="album__photo album__photo--light"
+             src="../assets/images/about-photo-color.png"
+             alt="Beatrice Sung" loading="lazy" />
+        <img class="album__photo album__photo--dark"
+             src="../assets/images/about-photo-bw.jpg"
+             alt="Beatrice Sung" loading="lazy" />
+      </div>
+
+      <!-- ── RIGHT PAGE: content + tabs ── -->
+      <div class="album__right">
+        <div class="album__panels">
+
+          <div class="album__content album__content--active" id="panel-bio">
+            <p>Hi, I'm Beatrice, a Product Designer based in Taiwan with 5+ years of experience. I've worked with e-commerce brands, advertising agencies, and startups, and I love turning messy, complex problems into solutions that actually work.</p>
+          </div>
+
+          <div class="album__content" id="panel-work">
+            <p>I design with users, business goals, and systems in mind, always thinking about the bigger picture.</p>
+            <p>I thrive in collaborative environments where ideas flow freely, and I'm just as comfortable diving into early-stage ambiguity as I am refining a polished design system.</p>
+            <p>Good work, to me, comes from curiosity, open dialogue, and a bit of care in every decision.</p>
+          </div>
+
+          <div class="album__content" id="panel-interests">
+            <p>When I'm not designing, you'll find me somewhere on a mountain, on a yoga mat, or chatting with someone from a completely different part of the world.</p>
+            <p>I believe the best ideas come from expanding your perspective, and I try to do that every day.</p>
+            <div class="album__tags">
+              <span>🏔 Mountain climbing</span>
+              <span>✈️ Adventurous travel</span>
+              <span>🧘 Yoga</span>
+              <span>🌱 Nature &amp; volunteer</span>
+              <span>🌏 Cultural exchange</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Tabs -->
+        <div class="album__tabs">
+          <button class="album__tab album__tab--active" data-panel="bio">Bio</button>
+          <button class="album__tab" data-panel="work">Work<br>approach</button>
+          <button class="album__tab" data-panel="interests">Personal<br>interests</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/about.js"></script>
+</body>
+</html>

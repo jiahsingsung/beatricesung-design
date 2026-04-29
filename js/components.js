@@ -32,7 +32,8 @@
               <a href="${e}case-study-rider-app.html" class="nav__dropdown-item">Rider App optimization</a>
             </div>
           </div>
-          <a href="${e}about-me.html" class="nav__link">🐘 About me</a>
+          <a href="${e}playground.html" class="nav__link nav__link--secret"><span class="nav__secret-emoji">🛝</span><span class="nav__secret-text">Playground</span></a>
+          <a href="${e}about.html" class="nav__link">🐘 About</a>
           <a href="${RESUME}" target="_blank" class="nav__link nav__link--resume">🔗 Resume</a>
         </nav>
         <button class="nav__hamburger" aria-label="Open menu">
@@ -44,7 +45,8 @@
       <a href="${e}case-study-moovo.html" class="nav__link">Bike rental for tourists</a>
       <a href="${e}case-study-booking-website.html" class="nav__link">Bike rental booking in US & EU</a>
       <a href="${e}case-study-rider-app.html" class="nav__link">Rider App optimization</a>
-      <a href="${e}about-me.html" class="nav__link">🐘 About me</a>
+      <a href="${e}playground.html" class="nav__link">🛝 Playground</a>
+      <a href="${e}about.html" class="nav__link">🐘 About</a>
       <a href="${RESUME}" target="_blank" class="nav__link nav__link--resume">🔗 Resume</a>
     </div>
   </nav>`;
