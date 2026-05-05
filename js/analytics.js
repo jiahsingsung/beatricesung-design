@@ -29,6 +29,13 @@
     });
   });
 
+  // Resume button click (desktop + mobile nav)
+  document.querySelectorAll('.nav__link--resume').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      track('resume_click', { page: window.location.pathname });
+    });
+  });
+
   // About page — album tab switch
   document.querySelectorAll('.album__tab').forEach((tab) => {
     tab.addEventListener('click', () => {

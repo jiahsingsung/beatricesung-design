@@ -74,7 +74,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copy">Ⓒ 2026, Beatrice Sung</p>
+        <p class="footer__copy">ⒸBeatrice Sung</p>
         <div class="footer__social">
           <a href="https://www.linkedin.com/in/beatricesung" target="_blank">LinkedIn</a>
           <a href="https://www.instagram.com/beatricesung" target="_blank">Instagram</a>
