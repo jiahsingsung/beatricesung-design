@@ -63,7 +63,7 @@
           <p class="footer__heading">Works</p>
           <ul class="footer__link-list">
             <li><a href="${e}case-study-moovo.html">Bike rental for tourists</a></li>
-            <li><a href="${e}case-study-booking-website.html">Booking process optimization</a></li>
+            <li><a href="${e}case-study-booking-website.html">Bike rental booking in US &amp; EU</a></li>
             <li><a href="${e}case-study-rider-app.html">Rider App optimization</a></li>
           </ul>
         </div>
